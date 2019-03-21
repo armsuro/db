@@ -9,11 +9,11 @@ const Schema = {
     },
     'app_version': {
         'type': DataTypes.STRING,
-        'allowNull': false
+        'allowNull': true
     },
     'app_id': {
         'type': DataTypes.STRING,
-        'allowNull': false
+        'allowNull': true
     },
     'timezone': {
         'type': DataTypes.STRING,
@@ -25,7 +25,7 @@ const Schema = {
     },
     'push_token': {
         'type': DataTypes.STRING,
-        'allowNull': false
+        'allowNull': true
     },
     'os': {
         'type': DataTypes.STRING,
