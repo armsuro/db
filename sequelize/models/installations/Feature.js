@@ -9,9 +9,9 @@ const Schema = {
         'type': DataTypes.STRING,
         'allowNull': true
     },
-    'state': {
-        'type': DataTypes.STRING,
-        'allowNull': true
+    'options': {
+        'type': DataTypes.JSON,
+        'allowNull': false
     }
 };
 
@@ -25,7 +25,7 @@ const Options = {
 const Association = ({
     installations
 }) => {
-    installations.Feature.hasMany(installations.Install, {
+    installations.Feature.belongsTo(installations.Install, {
         'foreignKey': 'installation_id',
         'as': 'Installations'
     });

@@ -4,19 +4,16 @@ const Schema = {
     'installation_id': {
         'type': DataTypes.STRING,
         'unique': true,
+        'primaryKey': true,
         'allowNull': false
-    },
-    'registered_date': {
-        'type': DataTypes.DATE,
-        'allowNull': true
     },
     'app_version': {
         'type': DataTypes.STRING,
-        'allowNull': true
+        'allowNull': false
     },
     'app_id': {
         'type': DataTypes.STRING,
-        'allowNull': true
+        'allowNull': false
     },
     'timezone': {
         'type': DataTypes.STRING,
@@ -24,9 +21,9 @@ const Schema = {
     },
     'locale': {
         'type': DataTypes.STRING,
-        'allowNull': false
+        'allowNull': true
     },
-    'pushToken': {
+    'push_token': {
         'type': DataTypes.STRING,
         'allowNull': false
     },
@@ -40,7 +37,7 @@ const Schema = {
     },
     'type': {
         'type': DataTypes.STRING,
-        'allowNull': false
+        'allowNull': true
     },
     'cpu': {
         'type': DataTypes.STRING,
@@ -62,7 +59,7 @@ const Options = {
 const Association = ({
     installations
 }) => {
-    installations.Install.belongsTo(installations.Feature, {
+    installations.Install.hasMany(installations.Feature, {
         'foreignKey': 'installation_id',
         'as': 'Features'
     });

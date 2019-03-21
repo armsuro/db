@@ -24,7 +24,8 @@ const loadDir = (dir, tag) => {
 
 Promise.all([
     loadDir(__dirname + "/models/installations", 'installations'),
-    loadDir(__dirname + "/models/users", 'users')
+    loadDir(__dirname + "/models/users", 'users'),
+    loadDir(__dirname + "/models/versions", 'versions'),
 ]).then(() => {
 	for ( let t in db ) {
 		for ( let i in db[t] ) {

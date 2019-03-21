@@ -1,32 +1,32 @@
 'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('features', {
+        return queryInterface.createTable('app_versions', {
             'id': {
                 'allowNull': false,
                 'autoIncrement': true,
                 'primaryKey': true,
                 'type': Sequelize.INTEGER
             },
-            'installation_id': {
+            'os': {
                 'type': Sequelize.STRING,
-                'allowNull': false,
-                'references': {
-                    'model': {
-                        'tableName': 'installations'
-                    },
-                    'key': 'installation_id'
-                },
-                'onUpdate': 'cascade',
-                'onDelete': 'cascade'
+                'allowNull': false
             },
-            'feature': {
+            'version': {
+                'type': Sequelize.STRING,
+                'allowNull': false
+            },
+            'package_86': {
+                'type': Sequelize.STRING,
+                'allowNull': false
+            },
+            'package_64': {
+                'type': Sequelize.STRING,
+                'allowNull': false
+            },
+            'release_notes': {
                 'type': Sequelize.STRING,
                 'allowNull': true
-            },
-            'options': {
-                'type': Sequelize.JSON,
-                'allowNull': false
             },
             'created_at': {
                 'allowNull': false,
@@ -41,6 +41,6 @@ module.exports = {
         })
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.sequelize.query("DROP TABLE features cascade;");
+        return queryInterface.sequelize.query("DROP TABLE app_versions cascade;");
     }
 };

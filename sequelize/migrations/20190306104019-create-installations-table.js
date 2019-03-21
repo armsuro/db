@@ -3,24 +3,15 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('installations', {
-            'id': {
-                'allowNull': false,
-                'autoIncrement': true,
-                'primaryKey': true,
-                'type': Sequelize.INTEGER
-            },
             'installation_id': {
                 'type': Sequelize.STRING,
                 'unique': true,
+                'primaryKey': true,
                 'allowNull': false
-            },
-            'registered_date': {
-                'type': Sequelize.DATE,
-                'allowNull': true
             },
             'app_version': {
                 'type': Sequelize.STRING,
-                'allowNull': true
+                'allowNull': false
             },
             'app_id': {
                 'type': Sequelize.STRING,
@@ -32,9 +23,9 @@ module.exports = {
             },
             'locale': {
                 'type': Sequelize.STRING,
-                'allowNull': false
+                'allowNull': true
             },
-            'pushToken': {
+            'push_token': {
                 'type': Sequelize.STRING,
                 'allowNull': false
             },
@@ -48,7 +39,7 @@ module.exports = {
             },
             'type': {
                 'type': Sequelize.STRING,
-                'allowNull': false
+                'allowNull': true
             },
             'cpu': {
                 'type': Sequelize.STRING,
