@@ -38,6 +38,11 @@ module.exports = {
                 'type': Sequelize.DATE,
                 'defaultValue': Sequelize.literal('CURRENT_TIMESTAMP')
             }
+        }).then(() => {
+            return queryInterface.addConstraint('app_versions', ['os', 'version'], {
+                type: 'unique',
+                name: 'unique_with_os_and_version'
+            });
         })
     },
     down: (queryInterface, Sequelize) => {
